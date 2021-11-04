@@ -1,41 +1,23 @@
 {% extends 'base.html'%}
 {% import 'macros.html' as macro%}
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="{{ url_for('static', filename = 'styles.css') }}">
-        {% if title %}
-        <title> {{ title }}</title>
-        {% else %}
-        <title> Welcome to the best Movie Review website </title>
-        {% endif %}
-   
-    </head>
-    <body class="container">
+
+       
         <!-- Popular movie -->
-        {% block content %}
+        {% block index %}
         <h3 id="tr"> Popular Movies</h3>
-         <ul>
-            {% for popular_movie in popular %}
-                <img height="120vh" width="100vw" src="{{ popular_movie.poster }}"> 
-                <li>{{ popular_movie.id}}: {{ popular_movie.title}}</li>
-            {% endfor %}
+         <ul class="row">
+            {{ macro.displayMovieList( popular ) }}
         </ul>
 
         <!-- Upcoming movie  -->
         <h3> Upcoming Movies </h3>
-         <ul>
-            {% for upcoming_movie in upcoming %}
-                <li>{{ upcoming_movie.title}}</li>
-            {% endfor %}
+         <ul class="row">
+            {{ macro.displayMovieList( upcoming ) }}
         </ul>
         <!-- Now showing movie -->
         <h3>Now Showing</h3>
-         <ul>
-            {% for now_showing_movie in now_showing %}
-                <li>{{ now_showing_movie.title}}</li>
-            {% endfor %}
+         <ul class="row">
+            {{ macro.displayMovieList( now_showing ) }}
         </ul>
 
         {% endblock%}

@@ -2,5 +2,13 @@ body{
     background-color: pink;
 }
 #tr{
-    color: red;
+    color: rgb(28, 105, 150);
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.movie-card{
+    margin: 0vh 2vw 2vh 0vw;
 }

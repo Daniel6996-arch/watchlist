@@ -1,7 +1,10 @@
 from flask import Flask
 from .config import DevConfig
 from flask_bootstrap import Bootstrap
+from flask_sqlalchemy import SQLAlchemy
 
+
+db = SQLAlchemy()
 # Initializing application
 app = Flask(__name__,instance_relative_config = True)
 
@@ -11,5 +14,7 @@ app.config.from_pyfile('config.py')
 
 # Initializing Flask Extensions
 bootstrap = Bootstrap(app)
+db.init_app(app)
+
 
 from app import views
